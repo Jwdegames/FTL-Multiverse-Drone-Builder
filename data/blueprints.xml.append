@@ -1,0 +1,671 @@
+<!-- 
+**********************************************************************************************************************
+                                         REPAIR
+**********************************************************************************************************************
+-->
+
+<crewBlueprint name="db_indy_crew_repair_drone">
+	<desc>A drone that can seek out damaged systems and repair them. Crew version that doesn't take up a crew spot.</desc>
+	<cost>40</cost>
+	<bp>2</bp>
+	<title>Crew System Repair Drone</title>
+	<short>Crew Sys Rep.</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>50 hp</power>
+		<power>2.5x repair speed</power>
+		<power>1.2x movement speed</power>
+		<power>0.35x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_repair_drone_auto">
+	<desc>Will seek out damaged systems and repair them automatically. Crew version that doesn't take up a crew spot. </desc>
+	<cost>36</cost>
+	<bp>2</bp>
+	<title>Crew System Repair Drone</title>
+	<short>Crew Sys Rep.</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>50 hp</power>
+		<power>2.5x repair speed</power>
+		<power>1.2x movement speed</power>
+		<power>0.35x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_repair2_drone">
+	<desc>A drone that can seek out damaged systems and repair them. More health and speed, as well as faster repair speed than Mk I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>45</cost>
+	<bp>2</bp>
+	<title>Crew System Repair II Drone</title>
+	<short>Crew Sys Rep. II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>75 hp</power>
+		<power>3.0x repair speed</power>
+		<power>1.5x movement speed</power>
+		<power>0.35x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_repair2_drone_auto">
+	<desc>Will seek out damaged systems and repair them automatically. More health and speed, as well as faster repair speed than Mk I version. Crew version that doesn't take up a crew spot. </desc>
+	<cost>41</cost>
+	<bp>2</bp>
+	<title>Crew System Repair II Drone</title>
+	<short>Crew Sys Rep. II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>50 hp</power>
+		<power>3.0x repair speed</power>
+		<power>1.5x movement speed</power>
+		<power>0.35x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<!-- 
+**********************************************************************************************************************
+                                         MANAGER
+**********************************************************************************************************************
+-->
+
+<crewBlueprint name="db_indy_crew_manager_drone">
+	<desc>A drone that can manage a system and provide power. Crew version that doesn't take up a crew spot.</desc>
+	<cost>45</cost>
+	<bp>2</bp>
+	<title>Crew Manager Drone</title>
+	<short>Crew Manager</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>100 hp</power>
+		<power>Can't repair, but can man systems at the lvl2 skill level</power>
+		<power>Provides 1 extra power in the current room</power>
+		<power>0.25x stun time</power>
+		<power>1.2x movement speed</power>
+		<power>0.25x damage from fires</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_manager_drone_auto">
+	<desc>Will manage a system and provide power automatically. Crew version that doesn't take up a crew spot.</desc>
+	<cost>41</cost>
+	<bp>2</bp>
+	<title>Crew Manager Drone</title>
+	<short>Crew Manager</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>100 hp</power>
+		<power>Can't repair, but can man systems at the lvl2 skill level</power>
+		<power>Provides 1 extra power in the current room</power>
+		<power>0.25x stun time, </power>
+		<power>1.2x movement speed</power>
+		<power>0.25x damage from fires</power>
+		<power>Can heal in drone bay</power>
+		<power>Unable to heal in medbay</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_manager2_drone">
+	<desc>A drone that can manage a system and provide power. Has more health and provides more power than Mk I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>56</cost>
+	<bp>2</bp>
+	<title>Crew Manager Drone</title>
+	<short>Crew Manager</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>125 hp</power>
+		<power>Can't repair, but can man systems at the lvl2 skill level</power>
+		<power>Provides 2 extra power in the current room</power>
+		<power>0.25x stun time</power>
+		<power>1.2x movement speed</power>
+		<power>0.25x damage from fires</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_manager2_drone_auto">
+	<desc>Will manage a system and provide power automatically. Has more health and provides more power than Mk I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>51</cost>
+	<bp>2</bp>
+	<title>Crew Manager Drone</title>
+	<short>Crew Manager</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>125 hp</power>
+		<power>Can't repair, but can man systems at the lvl2 skill level</power>
+		<power>Provides 2 extra power in the current room</power>
+		<power>0.25x stun time, </power>
+		<power>1.2x movement speed</power>
+		<power>0.25x damage from fires</power>
+		<power>Can heal in drone bay</power>
+		<power>Unable to heal in medbay</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<!-- 
+**********************************************************************************************************************
+                                         RECON
+**********************************************************************************************************************
+-->
+
+<crewBlueprint name="db_indy_crew_recon_drone">
+	<desc>Controllable small airborne recon drone that explodes on death. Crew version that doesn't take up a crew spot.</desc>
+	<cost>25</cost>
+	<bp>2</bp>
+	<title>Crew Recon Drone</title>
+	<short>Crew Recon</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>50 hp</power>
+		<power>Not capable of fighting, repairing, or manning systems</power>
+		<power>2.5x movement speed</power>
+		<power>0.25x damage from fires</power>
+		<power>Takes only 10% damage while on the ship and takes 50% damage on enemy ship</power>
+		<power>0.25x stun multiplier</power>
+		<power>Explodes on death</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<!-- 
+**********************************************************************************************************************
+                                         Doctor
+**********************************************************************************************************************
+-->
+
+<crewBlueprint name="db_indy_crew_doctor_drone">
+	<desc>Controllable support drone that heals friendly crew in the current room passively. Crew version that doesn't take up a crew spot.</desc>
+	<cost>50</cost>
+	<bp>2</bp>
+	<title>Crew Doctor Drone</title>
+	<short>Crew Doctor</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>100 hp</power>
+		<power>Not capable of fighting, repairing, or manning systems</power>
+		<power>0.9x movement speed</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Heals ally crew in the same room by 7hp/s</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_doctor_burst_drone">
+	<desc>Controllable support drone that releases nanobot healing bursts periodically in the current room passively. Crew version that doesn't take up a crew spot.</desc>
+	<cost>75</cost>
+	<bp>2</bp>
+	<title>Crew Doctor Burst Drone</title>
+	<short>Crew Doctor Burst</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>100 hp</power>
+		<power>Not capable of fighting, repairing, or manning systems</power>
+		<power>0.9x movement speed</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Releases a nano-healing burst every 10 seconds, healing crew by 72, and self heals by 12.</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_doctor_boost_drone">
+	<desc>Controllable support drone that heals friendly crew in the current room passively. Also, increases the damage and repair speed of friendly crew. Crew version that doesn't take up a crew spot.</desc>
+	<cost>75</cost>
+	<bp>2</bp>
+	<title>Crew Doctor Drone</title>
+	<short>Crew Doctor</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>100 hp</power>
+		<power>Not capable of fighting, repairing, or manning systems</power>
+		<power>0.9x movement speed</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Heals ally crew in the same room by 8hp/s and gives a 25% damage boost and a 50% repair speed bonus.</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<!-- 
+**********************************************************************************************************************
+                                         BATTLE
+**********************************************************************************************************************
+-->
+
+<crewBlueprint name="db_indy_crew_battle1_drone">
+	<desc>Controllable personnel drone. Crew version that doesn't take up a crew spot.</desc>
+	<cost>50</cost>
+	<bp>2</bp>
+	<title>Crew Battle 1 Drone</title>
+	<short>Crew Battle 1</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>175 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.8x movement speed</power>
+		<power>1.1x damage multiplier</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_battle1_drone_auto">
+	<desc>Automatic personnel drone. Crew version that doesn't take up a crew spot.</desc>
+	<cost>45</cost>
+	<bp>2</bp>
+	<title>Crew Battle 1 Drone</title>
+	<short>Crew Battle 1</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>175 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.8x movement speed</power>
+		<power>1.1x damage multiplier</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_battle2_drone">
+	<desc>Controllable personnel drone with more health and damage than the MK I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>70</cost>
+	<bp>2</bp>
+	<title>Crew Battle Mk. II Drone</title>
+	<short>Crew Battle Mk. II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>200 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.5x movement speed</power>
+		<power>1.5x damage multiplier</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_battle2_drone_auto">
+	<desc>Automatic personnel drone with more health and damage than the MK I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>63</cost>
+	<bp>2</bp>
+	<title>Crew Battle Mk. II Drone</title>
+	<short>Crew Battle Mk. II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>200 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.5x movement speed</power>
+		<power>1.5x damage multiplier</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_battle3_drone">
+	<desc>Controllable personnel drone with more health and damage than the MK II version. Also, only takes 90% damage from combat. Crew version that doesn't take up a crew spot.</desc>
+	<cost>98</cost>
+	<bp>2</bp>
+	<title>Crew Battle Mk. III Drone</title>
+	<short>Crew Battle Mk. III</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>250 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.3x movement speed</power>
+		<power>2x damage multiplier</power>
+		<power>Takes only 90% damage</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_battle3_drone_auto">
+	<desc>Automatic personnel drone with more health and damage than the MK II version. Also, only takes 90% damage from combat. Crew version that doesn't take up a crew spot.</desc>
+	<cost>89</cost>
+	<bp>2</bp>
+	<title>Crew Battle Mk. III Drone</title>
+	<short>Crew Battle Mk. III</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>250 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.3x movement speed</power>
+		<power>2x damage multiplier</power>
+		<power>Takes only 90% damage</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<!-- 
+**********************************************************************************************************************
+                                         Ion
+**********************************************************************************************************************
+-->
+
+<crewBlueprint name="db_indy_crew_ion_drone">
+	<desc>Controllable ion stun drone. Will only fire if a system is in the room. Won't stun allies and won't ionize friendly systems. Crew version that doesn't take up a crew spot.</desc>
+	<cost>65</cost>
+	<bp>2</bp>
+	<title>Crew Ion Drone</title>
+	<short>Crew Ion Drone</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>175 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.8x movement speed</power>
+		<power>Deals 3 ion damage to the current room and stuns enemies for 6 seconds</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_ion_drone_auto">
+	<desc>Automatic ion stun drone. Will only fire if a system is in the room. Won't stun allies and won't ionize friendly systems. Crew version that doesn't take up a crew spot.</desc>
+	<cost>59</cost>
+	<bp>2</bp>
+	<title>Crew Ion Drone</title>
+	<short>Crew Ion Drone</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>175 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.8x movement speed</power>
+		<power>Deals 3 ion damage to the current room and stuns enemies for 6 seconds</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_ion2_drone">
+	<desc>Controllable ion stun drone. Will only fire if a system is in the room. Has more ion damage and effects last longer than MK I version. Won't stun allies and won't ionize friendly systems. Crew version that doesn't take up a crew spot.</desc>
+	<cost>91</cost>
+	<bp>2</bp>
+	<title>Crew Ion II Drone</title>
+	<short>Crew Ion II Drone</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>200 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.5x movement speed</power>
+		<power>Deals 4 ion damage to the current room and stuns enemies for 8 seconds</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_ion2_drone_auto">
+	<desc>Automatic ion stun drone. Will only fire if a system is in the room. Has more health and ion damage, and effects last longer than MK I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>82</cost>
+	<bp>2</bp>
+	<title>Crew Ion II Drone</title>
+	<short>Crew Ion II Drone</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>200 hp</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>0.5x movement speed</power>
+		<power>Deals 4 ion damage to the current room and stuns enemies for 8 seconds</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<!-- 
+**********************************************************************************************************************
+                                         MENDER
+**********************************************************************************************************************
+-->
+
+<crewBlueprint name="db_indy_crew_mender_drone">
+	<desc>An ancient drone that can repair at insane speeds and provides other supporting benefits. Crew version that doesn't take up a crew spot.</desc>
+	<cost>70</cost>
+	<bp>2</bp>
+	<title>Mender Drone</title>
+	<short>Mender</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>110 HP, 4x repair speed, 1.5x movement speed</power>
+		<power>Heals nearby crew for 1hp/s</power>
+		<power>Inflicts a 9s stun when destroyed</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_mender_drone_auto">
+	<desc>An ancient drone that can repair at insane speeds and provides other supporting benefits. Crew version that doesn't take up a crew spot.</desc>
+	<cost>63</cost>
+	<bp>2</bp>
+	<title>Mender Drone</title>
+	<short>Mender</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>125 HP, 4x repair speed, 1.5x movement speed</power>
+		<power>Heals nearby crew for 1hp/s</power>
+		<power>Inflicts a 9s stun when destroyed</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.35x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_mender2_drone">
+	<desc>A ancient drone that can repair at insane speeds and provides other supporting benefits. Slightly boosted stats compared to MK 1 version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>88</cost>
+	<bp>2</bp>
+	<title>Mender II Drone</title>
+	<short>Mender II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>125 HP, 4.25x repair speed, 1.75x movement speed</power>
+		<power>Heals nearby crew for 1.5hp/s</power>
+		<power>Inflicts a 10s stun when destroyed</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.35x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+
+<crewBlueprint name="db_indy_crew_mender2_drone_auto">
+	<desc>A ancient drone that can repair at insane speeds and provides other supporting benefits. Slightly boosted stats compared to MK 1 version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>80</cost>
+	<bp>2</bp>
+	<title>Mender II Drone</title>
+	<short>Mender II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>125 HP, 4.25x repair speed, 1.75x movement speed</power>
+		<power>Heals nearby crew for 1.5hp/s</power>
+		<power>Inflicts a 10s stun when destroyed</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.35x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<!-- 
+**********************************************************************************************************************
+                                         DIRECTOR
+**********************************************************************************************************************
+-->
+
+<crewBlueprint name="db_indy_crew_director_drone">
+	<desc>An ancient drone that can interface with systems and power them. Crew version that doesn't take up a crew spot.</desc>
+	<cost>70</cost>
+	<bp>2</bp>
+	<title>Ancient Director Drone</title>
+	<short>Director</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>120 HP, 1.5x movement speed</power>
+		<power>Can't repair, but can man systems at the lvl2 skill level</power>
+		<power>Provides 4 power to occupied system</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x stun time</power>
+		<power>0.25x damage from fires</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_director_drone_auto">
+	<desc>An ancient drone that can interface with systems and power them. Crew version that doesn't take up a crew spot.</desc>
+	<cost>63</cost>
+	<bp>2</bp>
+	<title>Ancient Director Drone</title>
+	<short>Director</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>120 HP, 1.5x movement speed</power>
+		<power>Can't repair, but can man systems at the lvl2 skill level</power>
+		<power>Provides 4 power to occupied system</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x stun time</power>
+		<power>0.25x damage from fires</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_director2_drone">
+	<desc>An ancient drone that can interface with systems and power them. Has more health and provides more power than Mk I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>88</cost>
+	<bp>2</bp>
+	<title>Ancient Director II Drone</title>
+	<short>Director II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>150 HP, 1.5x movement speed</power>
+		<power>Can't repair, but can man systems at the lvl2 skill level</power>
+		<power>Provides 6 power to occupied system</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x stun time</power>
+		<power>0.25x damage from fires</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_director2_drone_auto">
+	<desc>An ancient drone that can interface with systems and power them. Has more health and provides more power than Mk I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>80</cost>
+	<bp>2</bp>
+	<title>Ancient Director II Drone</title>
+	<short>Director II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>150 HP, 1.5x movement speed</power>
+		<power>Can't repair, but can man systems at the lvl2 skill level</power>
+		<power>Provides 6 power to occupied system</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x stun time</power>
+		<power>0.25x damage from fires</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<!-- 
+**********************************************************************************************************************
+                                         ATOM
+**********************************************************************************************************************
+-->
+<crewBlueprint name="db_indy_crew_atomizer_drone">
+	<desc>Powerful controllable personnel drone. Crew version that doesn't take up a crew spot.</desc>
+	<cost>60</cost>
+	<bp>2</bp>
+	<title>Atomizer Drone</title>
+	<short>Atom</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>60 HP, 2x movement speed</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>2x combat damage, increased attack speed</power>
+		<power>Drains oxygen from rooms</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_atomizer_drone_auto">
+	<desc>Powerful automatic personnel drone. Crew version that doesn't take up a crew spot.</desc>
+	<cost>54</cost>
+	<bp>2</bp>
+	<title>Atomizer Drone</title>
+	<short>Atom</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>60 HP, 2x movement speed</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>2x combat damage, increased attack speed</power>
+		<power>Drains oxygen from rooms</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_atomizer2_drone">
+	<desc>Powerful controllable personnel drone with more health and damage than the MK I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>84</cost>
+	<bp>2</bp>
+	<title>Atomizer II Drone</title>
+	<short>Atom II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>90 HP, 2x movement speed</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>3x combat damage, increased attack speed</power>
+		<power>Drains oxygen from rooms</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can be controlled</power>
+	</powerList>
+</crewBlueprint>
+
+<crewBlueprint name="db_indy_crew_atomizer2_drone_auto">
+	<desc>Powerful automatic personnel drone with more health and damage than the MK I version. Crew version that doesn't take up a crew spot.</desc>
+	<cost>76</cost>
+	<bp>2</bp>
+	<title>Atomizer II Drone</title>
+	<short>Atom II</short>
+	<rarity>0</rarity>
+	<powerList>
+		<power>90 HP, 2x movement speed</power>
+		<power>Not capable of repairing or manning systems</power>
+		<power>3x combat damage, increased attack speed</power>
+		<power>Drains oxygen from rooms</power>
+		<power>Reveals adjacent rooms</power>
+		<power>0.25x damage from fires</power>
+		<power>0.25x stun multiplier</power>
+		<power>Can't be controlled</power>
+	</powerList>
+</crewBlueprint>

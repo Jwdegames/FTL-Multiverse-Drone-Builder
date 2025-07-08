@@ -1,0 +1,2566 @@
+<!-- 
+**********************************************************************************************************************
+                                         REPAIR
+**********************************************************************************************************************
+-->
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_repair_drone">
+        <animSheet>repair</animSheet>
+        <maxHealth>50</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <repairSpeed>2.5</repairSpeed>
+        <moveSpeedMultiplier>1.2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.35</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_repair_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_repair_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_repair_drone_auto">
+        <animSheet>repair</animSheet>
+        <maxHealth>50</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <repairSpeed>2.5</repairSpeed>
+        <moveSpeedMultiplier>1.2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.35</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_repair_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_repair_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+		<droneAI>
+			<repairAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_repair2_drone">
+        <animSheet>repair</animSheet>
+        <maxHealth>75</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <repairSpeed>3.0</repairSpeed>
+        <moveSpeedMultiplier>1.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.35</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_repair2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_repair2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_repair2_drone_auto">
+        <animSheet>repair</animSheet>
+        <maxHealth>75</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <repairSpeed>3.0</repairSpeed>
+        <moveSpeedMultiplier>2.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.35</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_repair2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_repair2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+		<droneAI>
+			<repairAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<!-- 
+**********************************************************************************************************************
+                                         MANAGER
+**********************************************************************************************************************
+-->
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_manager_drone">
+        <animSheet>manning</animSheet>
+        <maxHealth>100</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>true</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>1.2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <bonusPower>1</bonusPower>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <defaultSkillLevel>2</defaultSkillLevel> 
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_manager_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_manager_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_manager_drone_auto">
+        <animSheet>manning</animSheet>
+        <maxHealth>100</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>true</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>1.2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <bonusPower>1</bonusPower>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <defaultSkillLevel>2</defaultSkillLevel> 
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_manager_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_manager_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<manAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_manager2_drone">
+        <animSheet>manning</animSheet>
+        <maxHealth>125</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>true</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>1.2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <bonusPower>2</bonusPower>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <defaultSkillLevel>2</defaultSkillLevel> 
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_manager2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_manager_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_manager2_drone_auto">
+        <animSheet>manning</animSheet>
+        <maxHealth>125</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>true</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>1.2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <bonusPower>2</bonusPower>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <defaultSkillLevel>2</defaultSkillLevel> 
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_manager_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_manager_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<manAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<!-- 
+**********************************************************************************************************************
+                                         RECON
+**********************************************************************************************************************
+-->
+
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_recon_drone">
+        <animSheet>drone_recon</animSheet>
+        <maxHealth>50</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>2.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageTakenMultiplier>0.1</damageTakenMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_recon_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_recon_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+            <statBoost name="damageTakenMultiplier"> <!-- Increase damage multiplier to 0.5 on enemy ship -->
+                <boostType>SET</boostType>
+                <amount>0.5</amount>
+                <shipTarget>ENEMY_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_recon_drone/>
+                </whiteList>
+            </statBoost>
+        </passiveStatBoosts>
+        <deathEffect>
+			<sysDamage>1</sysDamage>
+			<persDamage>2</persDamage>
+			<stun>3</stun>
+			<fireChance>3</fireChance>
+			<friendlyFire>true</friendlyFire>
+			<shipFriendlyFire>true</shipFriendlyFire>
+		</deathEffect>
+    </mod-append:race>
+</mod:findLike>
+
+<!-- 
+**********************************************************************************************************************
+                                         Doctor
+**********************************************************************************************************************
+-->
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_doctor_drone">
+        <animSheet>doctor</animSheet>
+        <maxHealth>100</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.9</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <healCrewAmount>7</healCrewAmount>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_doctor_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_doctor_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_doctor_burst_drone">
+        <animSheet>doctor</animSheet>
+        <maxHealth>100</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.9</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_doctor_burst_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_doctor_burst_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <powerEffect>
+			<cooldown>10</cooldown>
+			<jumpCooldown>full</jumpCooldown>
+			<powerSounds>
+				<powerSound>healBomb</powerSound>
+			</powerSounds>
+			<activateWhenReady enemiesOnly="false">true</activateWhenReady>
+			<friendlyFire>true</friendlyFire>
+			<shipFriendlyFire>true</shipFriendlyFire>
+			<buttonText>HEAL</buttonText>
+            <tooltip>Automatic: activates an ion pulse</tooltip>
+			<tooltip>[COOLDOWN:10s] Automatic:
+				Heal all other friendly crew in the room for 72 HP and heal self for 12 HP.</tooltip>
+			<cooldownColor r="255" g="78" b="69" />
+			<effectAnim>explosion_big1_heal</effectAnim>
+			<crewHealth>72</crewHealth>
+			<selfHealth>12</selfHealth>
+		</powerEffect>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_doctor_boost_drone">
+        <animSheet>doctor</animSheet>
+        <maxHealth>100</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.9</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <healCrewAmount>8</healCrewAmount>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_doctor_boost_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_doctor_boost_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+            <statBoost name="repairSpeed">
+                <boostType>MULT</boostType>
+                <amount>1.5</amount>
+                <shipTarget>CURRENT_ROOM</shipTarget>
+                <crewTarget>ALLIES</crewTarget>
+                <droneTarget>CREW</droneTarget>
+                <affectsSelf>true</affectsSelf>
+            </statBoost>
+            <statBoost name="damageMultiplier">
+                <boostType>MULT</boostType>
+                <amount>1.25</amount>
+                <shipTarget>CURRENT_ROOM</shipTarget>
+                <crewTarget>ALLIES</crewTarget>
+                <droneTarget>CREW</droneTarget>
+                <affectsSelf>true</affectsSelf>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<!-- 
+**********************************************************************************************************************
+                                         BATTLE
+**********************************************************************************************************************
+-->
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_battle1_drone">
+        <animSheet>drone_battle</animSheet>
+        <maxHealth>175</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.8</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>1.1</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle1_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle1_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_battle1_drone_auto">
+        <animSheet>drone_battle</animSheet>
+        <maxHealth>175</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.8</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>1.1</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle1_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle1_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<fightAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_battle2_drone">
+        <animSheet>drone_battle</animSheet>
+        <maxHealth>200</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>1.5</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_battle2_drone_auto">
+        <animSheet>drone_battle</animSheet>
+        <maxHealth>200</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>1.5</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<fightAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_battle3_drone">
+        <animSheet>drone_battle</animSheet>
+        <maxHealth>250</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.3</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>2.0</damageMultiplier>
+        <damageTakenMultiplier>0.9</damageTakenMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle3_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle3_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_battle3_drone_auto">
+        <animSheet>drone_battle</animSheet>
+        <maxHealth>250</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.3</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>2.0</damageMultiplier>
+        <damageTakenMultiplier>0.9</damageTakenMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle3_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_battle3_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<fightAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<!-- 
+**********************************************************************************************************************
+                                         Ion
+**********************************************************************************************************************
+-->
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_ion_drone">
+        <animSheet>db_crew_ion_drone</animSheet>
+        <maxHealth>175</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.8</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>1.1</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_ion_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_ion_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <powerEffect>
+            <cooldown>12</cooldown>
+            <jumpCooldown>full</jumpCooldown>
+            <powerSounds>
+                <powerSound>ionHit1</powerSound>
+            </powerSounds>
+            <req>
+                <systemInRoom />
+            </req>
+            <friendlyFire>false</friendlyFire>
+            <shipFriendlyFire>false</shipFriendlyFire>  
+            <ion>3</ion>
+            <stun>6</stun>
+            <animFrame>-1</animFrame>
+            <buttonText>ION</buttonText>
+            <tooltip>Automatic: activates an ion pulse</tooltip>
+            <cooldownColor r="0" g="235" b="255" />
+            <effectAnim>explosion_big1_ion</effectAnim>
+            <activateWhenReady enemiesOnly="false">true</activateWhenReady>
+            <temporaryEffect>
+                <duration>2</duration>
+                <cooldownColor r="10" g="255" b="255" />
+                <!--<controllable>false</controllable>-->
+                <canFight>false</canFight>
+                <canRepair>false</canRepair>
+                <canSabotage>false</canSabotage>
+                <canMan>false</canMan>
+                <moveSpeedMultiplier>0</moveSpeedMultiplier>
+            </temporaryEffect>
+        </powerEffect>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_ion_drone_auto">
+        <animSheet>db_crew_ion_drone</animSheet>
+        <maxHealth>175</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.8</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>1.1</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_ion_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_ion_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <powerEffect>
+            <cooldown>12</cooldown>
+            <jumpCooldown>full</jumpCooldown>
+            <powerSounds>
+                <powerSound>ionHit1</powerSound>
+            </powerSounds>
+            <req>
+                <systemInRoom />
+            </req>
+            <friendlyFire>false</friendlyFire>
+            <shipFriendlyFire>false</shipFriendlyFire>  
+            <ion>3</ion>
+            <stun>6</stun>
+            <animFrame>-1</animFrame>
+            <buttonText>ION</buttonText>
+            <tooltip>Automatic: activates an ion pulse</tooltip>
+            <cooldownColor r="0" g="235" b="255" />
+            <effectAnim>explosion_big1_ion</effectAnim>
+            <activateWhenReady enemiesOnly="false">true</activateWhenReady>
+            <temporaryEffect>
+                <duration>2</duration>
+                <cooldownColor r="10" g="255" b="255" />
+                <!--<controllable>false</controllable>-->
+                <canFight>false</canFight>
+                <canRepair>false</canRepair>
+                <canSabotage>false</canSabotage>
+                <canMan>false</canMan>
+                <moveSpeedMultiplier>0</moveSpeedMultiplier>
+            </temporaryEffect>
+        </powerEffect>
+        <droneAI>
+			<fightAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_ion2_drone">
+        <animSheet>db_crew_ion_drone</animSheet>
+        <maxHealth>200</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>1.1</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>true</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_ion2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_ion2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <powerEffect>
+            <cooldown>12</cooldown>
+            <jumpCooldown>full</jumpCooldown>
+            <powerSounds>
+                <powerSound>ionHit1</powerSound>
+            </powerSounds>
+            <req>
+                <systemInRoom />
+            </req>
+            <friendlyFire>false</friendlyFire>
+            <shipFriendlyFire>false</shipFriendlyFire>  
+            <ion>4</ion>
+            <stun>8</stun>
+            <animFrame>-1</animFrame>
+            <buttonText>ION</buttonText>
+            <tooltip>Automatic: activates an ion pulse</tooltip>
+            <cooldownColor r="0" g="235" b="255" />
+            <effectAnim>explosion_big1_ion</effectAnim>
+            <activateWhenReady enemiesOnly="false">true</activateWhenReady>
+            <temporaryEffect>
+                <duration>2</duration>
+                <cooldownColor r="10" g="255" b="255" />
+                <!--<controllable>false</controllable>-->
+                <canFight>false</canFight>
+                <canRepair>false</canRepair>
+                <canSabotage>false</canSabotage>
+                <canMan>false</canMan>
+                <moveSpeedMultiplier>0</moveSpeedMultiplier>
+            </temporaryEffect>
+        </powerEffect>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_ion2_drone_auto">
+        <animSheet>db_crew_ion_drone</animSheet>
+        <maxHealth>200</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>0.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>1.1</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl> 
+        <controllable>false</controllable>
+        <deathSounds>
+            <deathSound>sysExplosion</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_ion2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_ion2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <powerEffect>
+            <cooldown>12</cooldown>
+            <jumpCooldown>full</jumpCooldown>
+            <powerSounds>
+                <powerSound>ionHit1</powerSound>
+            </powerSounds>
+            <req>
+                <systemInRoom />
+            </req>
+            <friendlyFire>false</friendlyFire>
+            <shipFriendlyFire>false</shipFriendlyFire>  
+            <ion>4</ion>
+            <stun>8</stun>
+            <animFrame>-1</animFrame>
+            <buttonText>ION</buttonText>
+            <tooltip>Automatic: activates an ion pulse</tooltip>
+            <cooldownColor r="0" g="235" b="255" />
+            <effectAnim>explosion_big1_ion</effectAnim>
+            <activateWhenReady enemiesOnly="false">true</activateWhenReady>
+            <temporaryEffect>
+                <duration>2</duration>
+                <cooldownColor r="10" g="255" b="255" />
+                <!--<controllable>false</controllable>-->
+                <canFight>false</canFight>
+                <canRepair>false</canRepair>
+                <canSabotage>false</canSabotage>
+                <canMan>false</canMan>
+                <moveSpeedMultiplier>0</moveSpeedMultiplier>
+            </temporaryEffect>
+        </powerEffect>
+        <droneAI>
+			<fightAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<!-- 
+**********************************************************************************************************************
+                                         MENDER
+**********************************************************************************************************************
+-->
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_mender_drone">
+        <animSheet>mender</animSheet>
+        <maxHealth>110</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <repairSpeed>4</repairSpeed>
+        <moveSpeedMultiplier>1.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.35</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic> 
+        <healCrewAmount>1</healCrewAmount>
+        <controllable>true</controllable>
+        <deathEffect>
+            <stun>9</stun>
+            <friendlyFire>false</friendlyFire>
+            <shipFriendlyFire>true</shipFriendlyFire>
+        </deathEffect>
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_mender_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_mender_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_mender_drone_auto">
+        <animSheet>mender</animSheet>
+        <maxHealth>110</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <repairSpeed>4</repairSpeed>
+        <moveSpeedMultiplier>1.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.35</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic> 
+        <healCrewAmount>1</healCrewAmount>
+        <controllable>false</controllable>
+        <deathEffect>
+            <stun>9</stun>
+            <friendlyFire>false</friendlyFire>
+            <shipFriendlyFire>true</shipFriendlyFire>
+        </deathEffect>
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_mender_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_mender_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<repairAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_mender2_drone">
+        <animSheet>mender</animSheet>
+        <maxHealth>125</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <repairSpeed>4.25</repairSpeed>
+        <moveSpeedMultiplier>1.75</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.35</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic> 
+        <healCrewAmount>1.5</healCrewAmount>
+        <controllable>true</controllable>
+        <deathEffect>
+            <stun>10</stun>
+            <friendlyFire>false</friendlyFire>
+            <shipFriendlyFire>true</shipFriendlyFire>
+        </deathEffect>
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_mender2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_mender2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_mender2_drone_auto">
+        <animSheet>mender</animSheet>
+        <maxHealth>125</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <repairSpeed>4.25</repairSpeed>
+        <moveSpeedMultiplier>1.75</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.35</fireDamageMultiplier>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic> 
+        <healCrewAmount>1.5</healCrewAmount>
+        <controllable>false</controllable>
+        <deathEffect>
+            <stun>10</stun>
+            <friendlyFire>false</friendlyFire>
+            <shipFriendlyFire>true</shipFriendlyFire>
+        </deathEffect>
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_mender2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_mender2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<repairAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<!-- 
+**********************************************************************************************************************
+                                         DIRECTOR
+**********************************************************************************************************************
+-->
+
+
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_director_drone">
+        <animSheet>director</animSheet>
+        <maxHealth>120</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>true</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>1.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <bonusPower>4</bonusPower>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic>  
+        <controllable>true</controllable>
+        <defaultSkillLevel>2</defaultSkillLevel> 
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_director_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_director_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_director_drone_auto">
+        <animSheet>director</animSheet>
+        <maxHealth>120</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>true</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>1.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <bonusPower>4</bonusPower>
+        <resistsMindControl>true</resistsMindControl> 
+        <isTelepathic>true</isTelepathic> 
+        <controllable>false</controllable>
+        <defaultSkillLevel>2</defaultSkillLevel> 
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_director_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_director_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<manAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_director2_drone">
+        <animSheet>director</animSheet>
+        <maxHealth>150</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>true</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>1.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <bonusPower>6</bonusPower>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic>  
+        <controllable>true</controllable>
+        <defaultSkillLevel>2</defaultSkillLevel> 
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_director2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_director2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_director2_drone_auto">
+        <animSheet>director</animSheet>
+        <maxHealth>150</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>false</canFight>
+        <canSabotage>false</canSabotage>
+        <canMan>true</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>1.5</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <bonusPower>6</bonusPower>
+        <resistsMindControl>true</resistsMindControl> 
+        <isTelepathic>true</isTelepathic> 
+        <controllable>false</controllable>
+        <defaultSkillLevel>2</defaultSkillLevel> 
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_director2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_director2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<manAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<!-- 
+**********************************************************************************************************************
+                                         ATOMIZER
+**********************************************************************************************************************
+-->
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_atomizer_drone">
+        <animBase>mantis</animBase>
+        <animSheet>atom</animSheet>
+        <maxHealth>60</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>2</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic> 
+        <isAnaerobic>true</isAnaerobic>
+        <oxygenChangeSpeed>-0.3</oxygenChangeSpeed> 
+        <controllable>true</controllable>
+        <shootingSounds>
+            <shootingSound>ionHit1</shootingSound>
+            <shootingSound>ionHit2</shootingSound>
+            <shootingSound>ionHit3</shootingSound>
+        </shootingSounds>
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_atomizer_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_atomizer_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_atomizer_drone_auto">
+        <animBase>mantis</animBase>
+        <animSheet>atom</animSheet>
+        <maxHealth>60</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>2</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic> 
+        <isAnaerobic>true</isAnaerobic>
+        <oxygenChangeSpeed>-0.3</oxygenChangeSpeed>
+        <controllable>false</controllable>
+        <shootingSounds>
+            <shootingSound>ionHit1</shootingSound>
+            <shootingSound>ionHit2</shootingSound>
+            <shootingSound>ionHit3</shootingSound>
+        </shootingSounds>
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_atomizer_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_atomizer_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<fightAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_atomizer2_drone">
+        <animBase>mantis</animBase>
+        <animSheet>atom</animSheet>
+        <maxHealth>90</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>3</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic> 
+        <isAnaerobic>true</isAnaerobic>
+        <oxygenChangeSpeed>-0.3</oxygenChangeSpeed> 
+        <controllable>true</controllable>
+        <shootingSounds>
+            <shootingSound>ionHit1</shootingSound>
+            <shootingSound>ionHit2</shootingSound>
+            <shootingSound>ionHit3</shootingSound>
+        </shootingSounds>
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_atomizer2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_atomizer2_drone/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+    </mod-append:race>
+</mod:findLike>
+
+<mod:findLike type="crew">
+    <mod-append:race name="db_indy_crew_atomizer2_drone_auto">
+        <animBase>mantis</animBase>
+        <animSheet>atom</animSheet>
+        <maxHealth>90</maxHealth>
+        <crewSlots>0</crewSlots> <!-- Crew drones take up no crew slots in exchange for costly production -->
+        <canFight>true</canFight>
+        <canSabotage>true</canSabotage>
+        <canMan>false</canMan> <!-- Only manager and director drones can man systems -->
+        <noClone>true</noClone> <!-- Drone are not cloneable -->
+        <healSpeed>1</healSpeed> 
+        <canBurn>true</canBurn>
+        <canSuffocate>false</canSuffocate>
+        <canRepair>false</canRepair>
+        <moveSpeedMultiplier>2</moveSpeedMultiplier>
+        <stunMultiplier>0.25</stunMultiplier>
+        <fireDamageMultiplier>0.25</fireDamageMultiplier>
+        <damageMultiplier>3</damageMultiplier>
+        <resistsMindControl>true</resistsMindControl>
+        <isTelepathic>true</isTelepathic> 
+        <isAnaerobic>true</isAnaerobic>
+        <oxygenChangeSpeed>-0.3</oxygenChangeSpeed>
+        <controllable>false</controllable>
+        <shootingSounds>
+            <shootingSound>ionHit1</shootingSound>
+            <shootingSound>ionHit2</shootingSound>
+            <shootingSound>ionHit3</shootingSound>
+        </shootingSounds>
+        <deathSounds>
+            <deathSound>ancientDeath</deathSound>
+        </deathSounds>
+        <passiveStatBoosts>
+            <statBoost name="healAmount"> <!-- Drone should only heal in the drone room -->
+                <boostType>SET</boostType>
+                <amount>1.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_atomizer2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemPowerDependency>
+                    <drones/>
+                </systemPowerDependency>
+                <systemList>
+                    <drones/>
+                </systemList>
+                <systemPowerScaling>
+                    <noSys>0</noSys>
+                    <noPwr>1</noPwr>
+                    <onePwr>1</onePwr>
+                </systemPowerScaling>
+            </statBoost>
+            <statBoost name="healSpeed"> <!-- Drone can't heal in the medbay -->
+                <boostType>SET</boostType>
+                <amount>0.0</amount>
+                <shipTarget>ORIGINAL_SHIP</shipTarget>
+                <crewTarget>SELF</crewTarget>
+                <maxStacks>1</maxStacks>
+                <priority>0</priority>
+                <whiteList>
+                    <db_indy_crew_atomizer2_drone_auto/>
+                </whiteList>
+                <systemRoomTarget>ALL</systemRoomTarget>
+                <systemList>
+                    <medbay/>
+                </systemList>
+            </statBoost>
+        </passiveStatBoosts>
+        <droneAI>
+			<fightAI />
+			<returnToDroneRoom />
+		</droneAI>
+    </mod-append:race>
+</mod:findLike>

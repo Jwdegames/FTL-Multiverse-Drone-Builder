@@ -1,0 +1,787 @@
+<!-- Add the event to the storage check -->
+<FTL>
+	<mod:findName type="event" name="STORAGE_CHECK_BUTTON" panic="true">
+		<mod-append:choice req="pilot" lvl="1" blue="false" max_group="100" hidden="true">
+			<text>Acces Drone Builder.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</mod-append:choice>
+		<mod:findWithChildLike type="choice" child-type="text" panic="true">
+			<mod:selector>Do nothing.</mod:selector>
+			<mod:removeTag />
+		</mod:findWithChildLike>
+		<mod-append:choice req="pilot" lvl="1" max_group="999" hidden="true" blue="false">
+			<text>Do nothing.</text>
+			<event/>
+		</mod-append:choice>
+	</mod:findName>
+
+	<event name="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD">
+		<loadEvent>DB_STORAGE_CHECK_BUILD_INDY_DRONE</loadEvent>
+	</event>
+
+	<event name="DB_STORAGE_CHECK_BUILD_INDY_DRONE">
+		<text>Independent Crew Drones heal in the dronebay for 1 hp/s, can't heal in the medbay, and can't be cloned. You can also build automatic drones that can't be controlled (Warning: The AI you give them may not be smart). What drone would you like to build?</text>
+		<choice>
+			<text>Build a controllable Crew Repair drone. [Cost: 40~, 2|]</text>
+			<event load="DB_INDY_BUILD_CREW_REPAIR"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Crew Repair drone. [Cost: 36~, 1|]</text>
+			<event load="DB_INDY_BUILD_CREW_REPAIR_AUTO"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Crew Repair Mk. II drone. [Cost: 45~, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_REPAIR2"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Crew Repair Mk. II drone. [Cost: 41~, 2|]</text>
+			<event load="DB_INDY_BUILD_CREW_REPAIR2_AUTO"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Manager drone. [Cost: 45~, 2{, 2|]</text>
+			<event load="DB_INDY_BUILD_CREW_MANAGER"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Manager drone. [Cost: 41~, 1{, 1|]</text>
+			<event load="DB_INDY_BUILD_CREW_MANAGER_AUTO"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Manager MK. II drone. [Cost: 56~, 3{, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_MANAGER2"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Manager MK. II  drone. [Cost: 51~, 2{, 2|]</text>
+			<event load="DB_INDY_BUILD_CREW_MANAGER2_AUTO"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Recon drone. [Cost: 25~, 2|]</text>
+			<event load="DB_INDY_BUILD_CREW_RECON"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Doctor drone. [Cost: 50~, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_DOCTOR"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Burst Doctor drone. [Cost: 75~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_DOCTOR_BURST"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Boost Doctor drone. [Cost: 75~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_DOCTOR_BOOST"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Battle Mk. I drone. [Cost: 50~, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_BATTLE1"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Battle Mk. I drone. [Cost: 45~, 2|]</text>
+			<event load="DB_INDY_BUILD_CREW_BATTLE1_AUTO"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Battle Mk. II drone. [Cost: 70~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_BATTLE2"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Battle Mk. II drone. [Cost: 63~, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_BATTLE2_AUTO"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Battle Mk. III drone. [Cost: 98~, 5|]</text>
+			<event load="DB_INDY_BUILD_CREW_BATTLE3"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Battle Mk. III drone. [Cost: 89~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_BATTLE3_AUTO"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Ion drone. [Cost: 65~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_ION"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Ion drone. [Cost: 59~, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_ION_AUTO"/>
+		</choice>
+		<choice>
+			<text>Build a controllable Ion Mk. II drone. [Cost: 91~, 5|]</text>
+			<event load="DB_INDY_BUILD_CREW_ION2"/>
+		</choice>
+		<choice>
+			<text>Build an automatic Ion Mk. II drone. [Cost: 82~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_ION2_AUTO"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build a controllable Mender drone. [Cost: 70~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_MENDER"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build an automatic Mender drone. [Cost: 63~, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_MENDER_AUTO"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build a controllable Mender Mk. II drone. [Cost: 88~, 5|]</text>
+			<event load="DB_INDY_BUILD_CREW_MENDER2"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build an automatic Mender Mk. II drone. [Cost: 80~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_MENDER2_AUTO"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build a controllable Director drone. [Cost: 70~, 5{, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_DIRECTOR"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build an automatic Director drone. [Cost: 63~, 4{, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_DIRECTOR_AUTO"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build a controllable Director Mk. II drone. [Cost: 88~, 7{, 5|]</text>
+			<event load="DB_INDY_BUILD_CREW_DIRECTOR2"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build an automatic Director Mk. II drone. [Cost: 80~, 6{, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_DIRECTOR2_AUTO"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build a controllable Atomizer drone. [Cost: 60~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_ATOMIZER"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build an automatic Atomizer drone. [Cost: 54~, 3|]</text>
+			<event load="DB_INDY_BUILD_CREW_ATOMIZER_AUTO"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build a controllable Atomizer Mk. II drone. [Cost: 84~, 5|]</text>
+			<event load="DB_INDY_BUILD_CREW_ATOMIZER2"/>
+		</choice>
+		<choice req="BLUELIST_AETHER" hidden="true">
+			<text>(Aether Tech) Build an automatic Atomizer Mk. II drone. [Cost: 76~, 4|]</text>
+			<event load="DB_INDY_BUILD_CREW_ATOMIZER2_AUTO"/>
+		</choice>
+		<choice>
+			<text>Nevermind, do something else.</text>
+			<event load="STORAGE_CHECK"/>
+		</choice>
+	</event>
+
+	<event name="DB_INDY_BUILD_CREW_REPAIR">
+		<text>You are about to build a Crew Repair drone. This Repair drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 40~, 2|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-2" max="-2"/>
+					<item type="scrap" min="-40" max="-40"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_repair_drone">Repair</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_REPAIR_AUTO">
+		<text>You are about to build a Crew Repair drone. This Repair drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 36~, 1|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-1" max="-1"/>
+					<item type="scrap" min="-36" max="-36"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_repair_drone_auto">Repair</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_REPAIR2">
+		<text>You are about to build a Crew Repair Mk. II drone. This Repair Mk. II drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 45~, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-45" max="-45"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_repair2_drone">Repair II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_REPAIR2_AUTO">
+		<text>You are about to build a Crew Repair Mk. II drone. This Repair Mk. II drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 41~, 2|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-2" max="-2"/>
+					<item type="scrap" min="-41" max="-41"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_repair2_drone_auto">Repair II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_MANAGER">
+		<text>You are about to build a Crew Manager drone. This Manager drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 45~, 2{, 2|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="fuel" min="-2" max="-2"/>
+					<item type="drones" min="-2" max="-2"/>
+					<item type="scrap" min="-45" max="-45"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_manager_drone">Manager</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_MANAGER_AUTO">
+		<text>You are about to build a Crew Manager drone. This Manager drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 41~, 1{, 1|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="fuel" min="-1" max="-1"/>
+					<item type="drones" min="-1" max="-1"/>
+					<item type="scrap" min="-41" max="-41"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_manager_drone_auto">Manager</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_MANAGER2">
+		<text>You are about to build a Crew Manager Mk. II drone. This Manager Mk. II drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 56~, 3{, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="fuel" min="-3" max="-3"/>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-56" max="-56"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_manager2_drone">Manager II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_MANAGER2_AUTO">
+		<text>You are about to build a Crew Manager Mk. II drone. This Manager Mk. II drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 51~, 2{, 2|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="fuel" min="-2" max="-2"/>
+					<item type="drones" min="-2" max="-2"/>
+					<item type="scrap" min="-51" max="-51"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_manager2_drone_auto">Manager II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_RECON">
+		<text>You are about to build a Crew Recon drone. This Recon drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 25~, 2|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-2" max="-2"/>
+					<item type="scrap" min="-25" max="-25"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_recon_drone">Recon</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_DOCTOR">
+		<text>You are about to build a Crew Doctor drone. This Doctor drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 50~, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-50" max="-50"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_doctor_drone">Doctor</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_DOCTOR_BURST">
+		<text>You are about to build a Crew Doctor Burst drone. This Doctor Burst drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 75~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-75" max="-75"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_doctor_burst_drone">Doctor Burst</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_DOCTOR_BOOST">
+		<text>You are about to build a Crew Doctor Boost drone. This Doctor Boost drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 75~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-75" max="-75"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_doctor_boost_drone">Doctor Boost</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_BATTLE1">
+		<text>You are about to build a Crew Battle Mk. I drone. This Battle Mk. I drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 50~, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-50" max="-50"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_battle1_drone">Battle I</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_BATTLE1_AUTO">
+		<text>You are about to build a Crew Battle Mk. I drone. This Battle Mk. I drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 45~, 2|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-2" max="-2"/>
+					<item type="scrap" min="-45" max="-45"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_battle1_drone_auto">Battle I</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_BATTLE2">
+		<text>You are about to build a Crew Battle Mk. II drone. This Battle Mk. II drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 70~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-70" max="-70"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_battle2_drone">Battle II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_BATTLE2_AUTO">
+		<text>You are about to build a Crew Battle Mk. II drone. This Battle Mk. II drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 63~, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-63" max="-63"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_battle2_drone_auto">Battle II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_BATTLE3">
+		<text>You are about to build a Crew Battle Mk. III drone. This Battle Mk. III drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 98~, 5|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-5" max="-5"/>
+					<item type="scrap" min="-98" max="-98"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_battle3_drone">Battle III</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_BATTLE3_AUTO">
+		<text>You are about to build a Crew Battle Mk. III drone. This Battle Mk. III drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 89~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-89" max="-89"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_battle3_drone_auto">Battle III</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_ION">
+		<text>You are about to build a Crew Ion drone. This Ion drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 65~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-65" max="-65"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_ion_drone">Ion</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_ION_AUTO">
+		<text>You are about to build a Crew Ion drone. This Ion drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 59~, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-59" max="-59"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_ion_drone_auto">Ion</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_ION2">
+		<text>You are about to build a Crew Ion Mk. II drone. This Ion Mk. II drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 91~, 5|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-5" max="-5"/>
+					<item type="scrap" min="-91" max="-91"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_ion2_drone">Ion II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_ION2_AUTO">
+		<text>You are about to build a Crew Ion Mk. II drone. This Ion Mk. II drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 82~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-82" max="-82"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_ion2_drone_auto">Ion II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_MENDER">
+		<text>You are about to build a Crew Mender drone. This Mender drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 70~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-70" max="-70"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_mender_drone">Mender</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_MENDER_AUTO">
+		<text>You are about to build a Crew Mender drone. This Mender drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 63~, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-63" max="-63"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_mender_drone_auto">Mender</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_MENDER2">
+		<text>You are about to build a Crew Mender Mk. II drone. This Mender Mk. II drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 88~, 5|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-5" max="-5"/>
+					<item type="scrap" min="-88" max="-88"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_mender2_drone">Mender II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_MENDER2_AUTO">
+		<text>You are about to build a Crew Mender Mk. II drone. This Mender Mk. II drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 80~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-80" max="-80"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_mender2_drone_auto">Mender II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_DIRECTOR">
+		<text>You are about to build a Crew Director drone. This Director drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 70~, 5{, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="fuel" min="-5" max="-5"/>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-70" max="-70"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_director_drone">Director</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_DIRECTOR_AUTO">
+		<text>You are about to build a Crew Director drone. This Director drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 63~, 4{, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="fuel" min="-4" max="-4"/>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-63" max="-63"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_director_drone_auto">Director</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_DIRECTOR2">
+		<text>You are about to build a Crew Director Mk. II drone. This Director Mk. II drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 88~, 7{, 5|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="fuel" min="-7" max="-7"/>
+					<item type="drones" min="-5" max="-5"/>
+					<item type="scrap" min="-88" max="-88"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_director2_drone">Director II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_DIRECTOR2_AUTO">
+		<text>You are about to build a Crew Director Mk. II drone. This Director Mk. II drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 80~, 6{, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="fuel" min="-6" max="-6"/>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-80" max="-80"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_director2_drone_auto">Director II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_ATOMIZER">
+		<text>You are about to build a Crew Atomizer drone. This Atomizer drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 60~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-60" max="-60"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_atomizer_drone">Atomizer</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_ATOMIZER_AUTO">
+		<text>You are about to build a Crew Atomizer drone. This Atomizer drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 54~, 3|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-3" max="-3"/>
+					<item type="scrap" min="-54" max="-54"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_atomizer_drone_auto">Atomizer</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_ATOMIZER2">
+		<text>You are about to build a Crew Atomizer Mk. II drone. This Atomizer Mk. II drone acts independently of the drone control and can be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 84~, 5|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-5" max="-5"/>
+					<item type="scrap" min="-84" max="-84"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_atomizer2_drone">Atomizer II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	<event name="DB_INDY_BUILD_CREW_ATOMIZER2_AUTO">
+		<text>You are about to build a Crew Atomizer Mk. II drone. This Atomizer Mk. II drone acts independently of the drone control and can't be controlled. It doesn't take up a crew slot.</text>
+		<choice>
+			<text>Build the drone. [Cost: 76~, 4|]</text>
+			<event>
+				<text>You build the drone.</text>
+				<item_modify>
+					<item type="drones" min="-4" max="-4"/>
+					<item type="scrap" min="-76" max="-76"/>
+				</item_modify>
+				<crewMember amount="1" class="db_indy_crew_atomizer2_drone_auto">Atomizer II</crewMember>
+			</event>
+		</choice> 
+		<choice>
+			<text>Nevermind.</text>
+			<event load="DB_STORAGE_CHECK_BUILD_INDY_DRONE_LOAD"/>
+		</choice>
+	</event>
+	
+</FTL>

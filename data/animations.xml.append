@@ -1,0 +1,91 @@
+
+<FTL>
+<animSheet name="db_crew_ion_drone_charge" w="175" h="35" fw="35" fh="35">people/db_crew_ion_drone_charge.png</animSheet>
+<animSheet name="db_crew_ion_drone_death" w="320" h="32" fh="32" fw="32">effects/explosion1_strip10.png</animSheet>
+<anim name="db_crew_ion_drone_charge">
+	<sheet>db_crew_ion_drone_charge</sheet>
+	<desc length="5" x="0" y="0" />
+	<time>1.0</time>
+</anim>
+<animSheet name="db_crew_ion_drone" w="210" h="245" fw="35" fh="35">people/db_crew_ion_drone_base.png</animSheet>
+<anim name="db_crew_ion_drone_shoot_down">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="0" y="6" />
+	<time>1.5</time>
+</anim>
+<anim name="db_crew_ion_drone_shoot_right">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="2" y="6" />
+	<time>1.5</time>
+</anim>
+<anim name="db_crew_ion_drone_shoot_up">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="0" y="5" />
+	<time>1.5</time>
+</anim>
+<anim name="db_crew_ion_drone_shoot_left">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="0" y="5" />
+	<time>1.5</time>
+</anim>
+<anim name="db_crew_ion_drone_punch_down">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="0" y="6" />
+	<time>1.5</time>
+</anim>
+<anim name="db_crew_ion_drone_punch_right">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="2" y="6" />
+	<time>1.5</time>
+</anim>
+<anim name="db_crew_ion_drone_punch_up">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="0" y="5" />
+	<time>1.5</time>
+</anim>
+<anim name="db_crew_ion_drone_punch_left">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="0" y="5" />
+	<time>1.5</time>
+</anim>
+<anim name="db_crew_ion_drone_death_right">
+	<sheet>db_crew_ion_drone_death</sheet>
+	<desc length="5" x="0" y="0" />
+	<time>1.0</time>
+</anim>
+<anim name="db_crew_ion_drone_death_right">
+	<sheet>db_crew_ion_drone_death</sheet>
+	<desc length="5" x="0" y="0" />
+	<time>1.0</time>
+</anim>
+<anim name="db_crew_ion_drone_teleport">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="6" x="0" y="3" />
+	<time>0.5</time>
+</anim>
+<anim name="db_crew_ion_drone_walk_down">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="4" x="0" y="2" />
+	<time>1.0</time>
+</anim>
+<anim name="db_crew_ion_drone_walk_right">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="4" y="2" />
+	<time>0.5</time>
+</anim>
+<anim name="db_crew_ion_drone_walk_up">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="4" x="0" y="1" />
+	<time>1.0</time>
+</anim>
+<anim name="db_crew_ion_drone_walk_left">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="2" x="4" y="1" />
+	<time>0.5</time>
+</anim>
+<anim name="db_crew_ion_drone_portrait">
+	<sheet>db_crew_ion_drone</sheet>
+	<desc length="1" x="0" y="0" />
+	<time>1</time>
+</anim>
+</FTL>
